@@ -18,10 +18,8 @@ def clicked():
     
     else:
         root.geometry("500x400")
-        lbl3.grid(column = 0, row = 5)
+        lbl3.grid(column = 0, row = 9)
         lbl2.configure(text = a[:m])
-        lbl3.configure(text='')
-    messagebox.showinfo("随机数生成器", "随机数已生成，关闭此窗口查看")
 
 root.title("随机数生成器")
 

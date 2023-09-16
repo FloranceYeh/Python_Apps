@@ -1,4 +1,4 @@
-('D:\\Code\\random\\build\\random_chooser\\PYZ-00.pyz',
+('D:\\Code\\Python Apps\\random\\build\\random_chooser\\PYZ-00.pyz',
  [('_compat_pickle',
    'C:\\Users\\Florance\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\_compat_pickle.py',
    'PYMODULE'),
