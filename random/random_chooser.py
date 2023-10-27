@@ -20,6 +20,7 @@ def clicked():
         root.geometry("500x400")
         lbl3.grid(column = 0, row = 9)
         lbl2.configure(text = a[:m])
+        lbl3.configure(text = '')
 
 root.title("随机数生成器")
 
