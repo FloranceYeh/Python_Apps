@@ -5,8 +5,9 @@ from datetime import datetime
 from win10toast import ToastNotifier
 from time import sleep
 from threading import Thread
-from os import system
+from os import system, startfile
 from pygame import mixer
+from sys import exit
 
 threads = []
 
@@ -65,7 +66,7 @@ class WinGUI(Tk):
                 toaster.show_toast(
                     "Warning",
                     "系统出现故障",
-                    icon_path = "warning.png",
+                    icon_path = "warning.ico",
                     duration = 2
                 )
             sleep(5)
@@ -113,7 +114,23 @@ class WinGUI(Tk):
         
 
     def function5(self):
-        pass
+        a = ["cmd.exe", "notepad.exe", "calc.exe", "powershell.exe", "mspaint.exe", "quickassist.exe", "mstsc.exe",
+            "SnippingTool.exe", "wordpad.exe", "mip.exe", "wmplayer.exe", "WFS.exe", "psr.exe", "charmap.exe",
+            "iscsicpl.exe", "odbcad32.exe", "MdSched.exe", "cleanmgr.exe", "services.msc", "WF.msc", "compmgmt.msc", 
+            "taskschd.msc", "taskmgr.exe", "eventvwr.msc", "dfrgui.exe", "msinfo32.exe",
+            "perfmon.msc", "comexp.msc"]
+        flag = False
+        while True:
+            now = datetime.now()
+            nh = now.hour
+            nm = now.minute
+            h = int(self.hour.get())
+            m = int(self.minute.get())
+            mixer.init()
+            if (nh == h and nm == m) or flag == True:
+                flag = True
+                startfile(a[randrange(0, len(a))])
+                sleep(0.5)
 
     def function6(self):
         pass
@@ -122,16 +139,30 @@ class WinGUI(Tk):
         messagebox.askokcancel(
             title = 'Help',message='\
                 对拖堂特种，灵感来源于Chose_B以及Florance的愤怒\n\
-                点击Start后窗口会消失，命令执行完毕后关闭\n\
+                点击Start后窗口会消失，命令执行完3分钟后关闭\n\
                 如果误触，请自行使用TaskManager关闭进程\n\
                 功能介绍：\n\
                 1.关机 定时关闭电脑，无任何警告\n\
                 2.通知 疯狂弹出系统错误的假通知\n\
                 3.窗口 疯狂弹出新窗口\n\
                 4.音乐 播放在文件目录下名为music.mp3的音乐\n\
-                5.抽风 疯狂打开电脑中的程序(未完成)\n\
+                5.抽风 疯狂打开Windows自带程序\n\
                 6.待开发 期待你的建言献策\n\
             ')
+    
+    def stop(self):
+        while True:
+            now = datetime.now()
+            nh = now.hour
+            nm = now.minute
+            h = int(self.hour.get())
+            m = int(self.minute.get()) + 3
+            if m >= 60:
+                m -= 60
+                h += 1
+            if nh == h and nm == m:
+                exit()
+            
 
 
     def clicked(self):
@@ -141,6 +172,7 @@ class WinGUI(Tk):
         f4 = Thread(target=self.function4)
         f5 = Thread(target=self.function5)
         f6 = Thread(target=self.function6)
+        stop = Thread(target=self.stop)
         if self.F1.get() == 1:
             threads.append(f1)
         if self.F2.get() == 1:

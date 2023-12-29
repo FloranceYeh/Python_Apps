@@ -1,4 +1,4 @@
-('E:\\against\\build\\Against_sconcer\\PYZ-00.pyz',
+('D:\\Code\\Python Apps\\against\\build\\Against_sconcer\\PYZ-00.pyz',
  [('__future__',
    'C:\\Users\\Florance\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\__future__.py',
    'PYMODULE'),
