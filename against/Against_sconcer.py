@@ -52,6 +52,7 @@ class WinGUI(Tk):
             sleep(5)
 
     def function2(self):
+        flag = False
         toaster = ToastNotifier()
         while True:
             now = datetime.now()
@@ -59,7 +60,6 @@ class WinGUI(Tk):
             nm = now.minute
             h = int(self.hour.get())
             m = int(self.minute.get())
-            flag = False
             if (nh == h and nm == m) or flag == True:
                 flag = True
                 toaster.show_toast(
@@ -71,6 +71,7 @@ class WinGUI(Tk):
             sleep(5)
 
     def function3(self):
+        flag = False
         def dow():
             F3window = Tk()
             F3window.title('ERROR')
@@ -88,7 +89,6 @@ class WinGUI(Tk):
             m = int(self.minute.get())
             flag = False
             if (nh == h and nm == m) or flag == True:
-                flag = True
                 for i in range(666):
                     t = Thread(target=dow)
                     F3threads.append(t)
@@ -97,13 +97,13 @@ class WinGUI(Tk):
             sleep(5)
 
     def function4(self):
+        flag = False
         while True:
             now = datetime.now()
             nh = now.hour
             nm = now.minute
             h = int(self.hour.get())
             m = int(self.minute.get())
-            flag = False
             mixer.init()
             if (nh == h and nm == m) or flag == True:
                 flag = True
@@ -126,7 +126,7 @@ class WinGUI(Tk):
                 如果误触，请自行使用TaskManager关闭进程\n\
                 功能介绍：\n\
                 1.关机 定时关闭电脑，无任何警告\n\
-                2.通知 疯狂弹出系统错误的假通知(有BUG)\n\
+                2.通知 疯狂弹出系统错误的假通知\n\
                 3.窗口 疯狂弹出新窗口\n\
                 4.音乐 播放在文件目录下名为music.mp3的音乐\n\
                 5.抽风 疯狂打开电脑中的程序(未完成)\n\
